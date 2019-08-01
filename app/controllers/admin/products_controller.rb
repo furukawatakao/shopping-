@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
   def index
   end
 
@@ -6,12 +6,13 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    product = Product.new(product_params)
-    product.save!
-    redirect_to "admin_products_path", notice: "商品#{product.name}を登録しました。"
+    products = Product.new(product_params)
+    products.save!
+    redirect_to admin_products_path, notice: "商品#{product.name}を登録しました。"
   end
 
   def edit

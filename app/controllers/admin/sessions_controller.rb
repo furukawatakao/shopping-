@@ -8,13 +8,14 @@ class Admin::SessionsController < ApplicationController
 
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to 'admin_product_path', notice: "ログインしました"
+      redirect_to admin_products_path, notice: "ログインしました"
     else
       render :new
     end
   end
 
   def index
+    
   end
 
   private
