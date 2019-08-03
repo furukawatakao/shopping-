@@ -1,2 +1,23 @@
-h1 Products#show
-p Find me in app/views/products/show.html.slim
+h1 タスクの詳細
+
+.nav.justify-content-end
+  = link_to '一覧', admin_products_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Product.human_attribute_name(:id)
+      th= @product.id
+    tr
+      th= Product.human_attribute_name(:name)
+      td= @product.name
+    tr
+      th= Product.human_attribute_name(:description)
+      td= simple_format(h(@product.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Product.human_attribute_name(:created_at)
+      td= @product.created_at
+    tr
+      th= Product.human_attribute_name(:updated_at)
+      td= @product.updated_at
+
+= link_to '編集', edit_admin_product_path, class: 'btn btn-primary mr-3'

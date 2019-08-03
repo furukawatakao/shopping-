@@ -1,3 +1,18 @@
 h1 商品一覧
 
 = link_to '新規登録', new_admin_product_path, class: "btn btn-primary"
+
+.mb-3
+table.table.table-hover
+  therd.therd-default
+    tr
+      th= Product.human_attribute_name(:name)
+      th= Product.human_attribute_name(:created_at)
+      th
+    tbody
+      - @products.each do |product|
+        tr
+          td= link_to product.name, admin_product_path(product.id)
+          td= product.created_at
+          td
+            = link_to '編集', edit_admin_product_path(product.id), class: 'btn btn-primary mr-3'
