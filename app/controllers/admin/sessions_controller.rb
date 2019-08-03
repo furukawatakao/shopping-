@@ -1,4 +1,5 @@
 class Admin::SessionsController < ApplicationController
+  skip_before_action :login_required
 
   def new
   end
@@ -15,7 +16,7 @@ class Admin::SessionsController < ApplicationController
   end
 
   def index
-    
+
   end
 
   private

@@ -16,3 +16,4 @@ table.table.table-hover
           td= product.created_at
           td
             = link_to '編集', edit_admin_product_path(product.id), class: 'btn btn-primary mr-3'
+            = link_to '削除', admin_product_path(product.id), method: :delete, data: {confirm: "商品「#{product.name}」を削除します"},class: "btn btn-danger"

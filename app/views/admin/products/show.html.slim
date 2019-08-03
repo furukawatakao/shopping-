@@ -14,6 +14,9 @@ table.table.table-hover
       th= Product.human_attribute_name(:description)
       td= simple_format(h(@product.description), {}, sanitize: false, wrapper_tag: "div")
     tr
+      th= Product.human_attribute_name(:image)
+      td= image_tag @product.image if @product.image.attached?
+    tr
       th= Product.human_attribute_name(:created_at)
       td= @product.created_at
     tr
@@ -21,3 +24,4 @@ table.table.table-hover
       td= @product.updated_at
 
 = link_to '編集', edit_admin_product_path, class: 'btn btn-primary mr-3'
+= link_to '削除', admin_product_path(@product.id), method: :delete, data: {confirm: "商品「#{@product.name}」を削除しますよろしいですか？"},class: "btn btn-danger"
