@@ -13,7 +13,6 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to admin_products_path, notice: "商品#{@product.name}を登録しました。"
     else

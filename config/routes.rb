@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'user#index'
-
-  resources :user
+  root to: 'users#index'
+  resources :users
 
   namespace :admin do
     get '/login', to: 'sessions#new'

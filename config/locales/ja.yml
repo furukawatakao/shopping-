@@ -12,6 +12,7 @@ ja:
       product: 商品
     attributes:
       product:
+      user:
         id: ID
         name: 名称
         description: 詳しい説明
