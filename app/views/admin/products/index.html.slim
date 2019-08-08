@@ -7,12 +7,14 @@ table.table.table-hover
   therd.therd-default
     tr
       th= Product.human_attribute_name(:name)
+      <!-- th= Product.human_attribute_name(:image) -->
       th= Product.human_attribute_name(:created_at)
       th
     tbody
       - @products.each do |product|
         tr
           td= link_to product.name, admin_product_path(product.id)
+          <!-- td= link_to product.image, admin_product_path(product.id) -->
           td= product.created_at
           td
             = link_to '編集', edit_admin_product_path(product.id), class: 'btn btn-primary mr-3'

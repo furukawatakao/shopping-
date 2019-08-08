@@ -10,6 +10,15 @@ html
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .nabvar-brand ShoppingApp
+
+      ul.navbar-nav.ml-auto
+        - if current_user
+          li.nav-item= link_to '商品一覧', admin_products_path, class: 'nav-link'
+          li.nav-item= link_to 'ユーザー一覧', admin_products_path, class: 'nav-link'
+          <!--  li nav-item= link_to 'ログアウト', admin_products_path, class: 'nav-link' -->
+        - else
+          li.nav-item= link_to 'ログイン', admin_products_path, class: 'nav-link'
+
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice

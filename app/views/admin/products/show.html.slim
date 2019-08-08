@@ -1,4 +1,4 @@
-h1 タスクの詳細
+h1 商品の詳細
 
 .nav.justify-content-end
   = link_to '一覧', admin_products_path, class: 'nav-link'
@@ -15,7 +15,10 @@ table.table.table-hover
       td= simple_format(h(@product.description), {}, sanitize: false, wrapper_tag: "div")
     tr
       th= Product.human_attribute_name(:image)
-      td= image_tag @product.image if @product.image.attached?
+      td= image_tag @product.image, style: "width:50%;" if @product.image.attached?
+    tr
+      th= Product.human_attribute_name(:price)
+      td= @product.price
     tr
       th= Product.human_attribute_name(:created_at)
       td= @product.created_at

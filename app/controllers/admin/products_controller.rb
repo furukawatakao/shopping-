@@ -12,9 +12,13 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    product.save
-    redirect_to admin_products_path, notice: "商品#{product.name}を登録しました。"
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to admin_products_path, notice: "商品#{@product.name}を登録しました。"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,8 +27,8 @@ class Admin::ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
-    # product.update!(product_params)
-    product_attributes = product_params
+    product.update!(product_params)
+    # product_attributes = product_params
     redirect_to admin_products_url, notice: "商品「#{product.name}を更新しました"
   end
 
@@ -36,7 +40,7 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :image)
+    params.require(:product).permit(:name, :description, :image, :price)
   end
 
 end
