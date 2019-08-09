@@ -17,7 +17,7 @@ class Admin::SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_url, notice: 'ログアウトしました。'
+    redirect_to admin_login_path, notice: 'ログアウトしました。'
   end
 
   def index

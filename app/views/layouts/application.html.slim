@@ -14,8 +14,8 @@ html
       ul.navbar-nav.ml-auto
         - if current_user
           li.nav-item= link_to '商品一覧', admin_products_path, class: 'nav-link'
-          li.nav-item= link_to 'ユーザー一覧', users_path, class: 'nav-link'
-          <!--  li nav-item= link_to 'ログアウト', admin_products_path, class: 'nav-link' -->
+          li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', admin_logout_path, method: :delete, class: 'nav-link'
         - else
           li.nav-item= link_to 'ログイン', admin_products_path, class: 'nav-link'
 

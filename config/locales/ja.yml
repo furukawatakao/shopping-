@@ -9,12 +9,15 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       task: タスク
-      product: 商品
     attributes:
       product:
       user:
         id: ID
         name: 名称
+        email: メールアドレス
+        admin: 管理者権限
+        password: パスワード
+        password_confimation: パスワード（確認）
         description: 詳しい説明
         image: 画像
         created_at: 登録日時
