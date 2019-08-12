@@ -1,6 +1,6 @@
 class Admin::ManagementUsersController < ApplicationController
   def index
-    @adminuser= AdminUser.all
+    @users= AdminUser.all
   end
 
   def new
