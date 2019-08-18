@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/index'
+  get 'products/show'
   namespace :admin do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
-    resources :users
+    resources :products, :only => [:index, :show]
     resources :users, :except => :index
 end

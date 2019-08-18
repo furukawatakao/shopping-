@@ -17,7 +17,7 @@ class Admin::SessionsController < Admin::ApplicationController
   end
 
   def destroy
-    reset_session
+    session.delete(:admin_user_id)
     redirect_to admin_login_path, notice: 'ログアウトしました。'
   end
 

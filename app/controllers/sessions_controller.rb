@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
 
   def new
   end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to users_path, notice: "ログインしました"
+      redirect_to products_path, notice: "ログインしました"
     else
       render :new
     end
@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
-    redirect_to user_login_path, notice: 'ログアウトしました。'
+    session.delete(:user_id)
+    redirect_to login_path, notice: 'ログアウトしました。'
   end
 
   private

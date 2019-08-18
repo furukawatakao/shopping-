@@ -1,0 +1,20 @@
+h1 商品一覧
+
+
+.mb-3
+table.table.table-hover
+  therd.therd-default
+    tr
+      th= Product.human_attribute_name(:name)
+      th= Product.human_attribute_name(:image)
+      th= Product.human_attribute_name(:price)
+      th= Product.human_attribute_name(:created_at)
+      th
+    tbody
+      - @products.each do |product|
+        tr
+          td= link_to product.name, admin_product_path(product.id)
+          td= link_to image_tag(product.image, style:"width:50px"), admin_product_path(product.id) if product.image.attached?
+          td= product.price
+          td= product.created_at
+          td
