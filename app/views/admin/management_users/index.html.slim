@@ -6,18 +6,18 @@ h1 管理ユーザー 一覧
 table.table.table-hover
   therd.therd-default
     tr
-      th= User.human_attribute_name(:name)
-      th= User.human_attribute_name(:email)
-      th= User.human_attribute_name(:created_at)
-      th= User.human_attribute_name(:updated_at)
+      th= AdminUser.human_attribute_name(:name)
+      th= AdminUser.human_attribute_name(:email)
+      th= AdminUser.human_attribute_name(:created_at)
+      th= AdminUser.human_attribute_name(:updated_at)
       th
     tbody
-      - @users.each do |user|
+      - @adminusers.each do |adminuser|
         tr
-          t
-          td= user.email
-          td= user.created_at
-          td= user.updated_at
+          td= link_to adminuser.name, admin_management_user_path(adminuser.id)
+          td= adminuser.email
+          td= adminuser.created_at
+          td= adminuser.updated_at
           td
-            = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
-            
+            = link_to '編集', edit_admin_management_user_path(adminuser), class: 'btn btn-primary mr-3'
+            = link_to '削除', admin_management_user_path(adminuser), method: :delete, data: {confirm: "ユーザー「#{adminuser.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'

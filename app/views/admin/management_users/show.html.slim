@@ -1,0 +1,23 @@
+h1 管理ユーザーの詳細
+
+.nav.justfy-content-end
+  = link_to '一覧', admin_management_users_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= AdminUser.human_attribute_name(:id)
+      td= @adminuser.id
+    tr
+      th= AdminUser.human_attribute_name(:name)
+      td= @adminuser.name
+    tr
+      th= AdminUser.human_attribute_name(:email)
+      td= @adminuser.email
+    tr
+      th= AdminUser.human_attribute_name(:created_at)
+      td= @adminuser.created_at
+    tr
+      th= AdminUser.human_attribute_name(:updated_at)
+      td= @adminuser.updated_at
+= link_to '編集', edit_admin_management_user_path, class: 'btn btn-primary'
+= link_to '削除', admin_management_user_path, method: :delete, data: {confirm: "ユーザー「#{@adminuser.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
