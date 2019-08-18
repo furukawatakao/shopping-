@@ -1,4 +1,5 @@
-class Admin::SessionsController < ApplicationController
+class Admin::SessionsController < Admin::ApplicationController
+
   skip_before_action :login_required
 
   def new
@@ -8,7 +9,7 @@ class Admin::SessionsController < ApplicationController
     user = AdminUser.find_by(email: session_params[:email])
 
     if user&.authenticate(session_params[:password])
-      session[:user_id] = user.id
+      session[:admin_user_id] = user.id
       redirect_to admin_products_path, notice: "ログインしました"
     else
       render :new
