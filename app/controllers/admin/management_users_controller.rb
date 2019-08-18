@@ -1,4 +1,5 @@
 class Admin::ManagementUsersController < Admin::ApplicationController
+  
   def index
     @adminusers= AdminUser.all
   end
