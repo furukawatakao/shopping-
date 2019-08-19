@@ -13,8 +13,8 @@ table.table.table-hover
     tbody
       - @products.each do |product|
         tr
-          td= link_to product.name, admin_product_path(product.id)
-          td= link_to image_tag(product.image, style:"width:50px"), admin_product_path(product.id) if product.image.attached?
+          td= link_to product.name, product_path(product.id)
+          td= link_to image_tag(product.image, style:"width:50px"), product_path(product.id) if product.image.attached?
           td= product.price
           td= product.created_at
           td

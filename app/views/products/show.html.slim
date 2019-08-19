@@ -1,2 +1,27 @@
-h1 Products#show
-p Find me in app/views/products/show.html.slim
+h1 商品の詳細
+
+.nav.justify-content-end
+  = link_to '一覧', products_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Product.human_attribute_name(:id)
+      th= @product.id
+    tr
+      th= Product.human_attribute_name(:name)
+      td= @product.name
+    tr
+      th= Product.human_attribute_name(:description)
+      td= simple_format(h(@product.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Product.human_attribute_name(:image)
+      td= image_tag @product.image, style: "width:50%;" if @product.image.attached?
+    tr
+      th= Product.human_attribute_name(:price)
+      td= @product.price
+    tr
+      th= Product.human_attribute_name(:created_at)
+      td= @product.created_at
+    tr
+      th= Product.human_attribute_name(:updated_at)
+      td= @product.updated_at
