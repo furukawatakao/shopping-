@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
-    resources :products, :only => [:index, :show]
+    resources :products, :only => [:index, :show] do
+      collection do
+        post '/search', to: 'products#search'
+      end
+    end
     resources :users, :except => :index
 end

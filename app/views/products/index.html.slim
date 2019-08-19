@@ -1,5 +1,27 @@
 h1 商品一覧
 
+.card
+  .card-header
+    = "商品検索"
+  .card-body
+    = form_with model: @search_form, url: search_products_path, local: true do |f|
+      .form-group.row
+        .col-sm-2
+          = f.label :name, '商品名', clsss: 'col-form-label'
+        .col-sm-10
+          = f.text_field :name, class: 'form-control'
+      .form-group.row
+        .col-sm-2
+          = f.label :price_from, '商品値段下限', clsss: 'col-form-label'
+        .col-sm-10
+          = f.text_field :price_from, class: 'form-control'
+      .form-group.row
+        .col-sm-2
+          = f.label :price_to, '商品値段上限', clsss: 'col-form-label'
+        .col-sm-10
+          = f.text_field :price_to, class: 'form-control'
+      = f.submit "検索する", class: 'btn btn-primary'
+
 
 .mb-3
 table.table.table-hover
