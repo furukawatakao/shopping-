@@ -1,3 +1,8 @@
+- if @product.errors.present?
+  ul#error_explanation
+    - @product.errors.full_messages.each do |message|
+      li = message
+
 = form_with model: [:admin,@product], local: true do |f|
     .form-group
       = f.label :name

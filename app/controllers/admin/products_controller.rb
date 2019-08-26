@@ -26,10 +26,16 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
-    product.update!(product_params)
-    # product_attributes = product_params
-    redirect_to admin_products_url, notice: "商品「#{product.name}を更新しました"
+    @product = Product.find(params[:id])
+    @product.attributes = product_params
+    if @product.valid?
+        @product.save!
+        # product_attributes = product_params
+        redirect_to admin_products_url, notice: "商品「#{@product.name}を更新しました"
+    else
+      render :edit
+      return
+    end
   end
 
   def destroy
