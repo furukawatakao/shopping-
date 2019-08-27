@@ -1,9 +1,9 @@
-- if @product.errors.present?
+- if product.errors.present?
   ul#error_explanation
-    - @product.errors.full_messages.each do |message|
+    - product.errors.full_messages.each do |message|
       li = message
 
-= form_with model: [:admin,@product], local: true do |f|
+= form_with model: [:admin,product], local: true do |f|
     .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control', id: 'product_name'

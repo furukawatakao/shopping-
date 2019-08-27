@@ -8,6 +8,6 @@ class Admin::ApplicationController < ApplicationController
   end
 
   def admin_login_required
-    redirect_to login_url unless admin_current_user
+    redirect_to admin_login_url unless admin_current_user
   end
 end
