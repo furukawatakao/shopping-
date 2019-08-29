@@ -8,9 +8,11 @@ class ApplicationController < ActionController::Base
   def current_cart
     if session[:cart_id]
       @cart = Cart.find(session[:cart_id])
+      return @cart
     else
-      @cart = Cart.create
+      @cart = Cart.create(user_id: current_user.id)
       session[:cart_id] = @cart.id
+      return @cart
     end
   end
 
