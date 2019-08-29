@@ -25,6 +25,10 @@ table.table.table-hover
     tr
       th= Product.human_attribute_name(:updated_at)
       td= @product.updated_at
-
+    tr
   <!-- = submit_tag nil, class: 'btn btn-success' -->
-          = input_tyoe= submit_tag value = "購入"
+
+      <div class="col-md-XX">
+        <button type="button" class="btn btn-success">購入</button>
+        = link_to "商品追加", add_item_cart_path({:id => current_cart_id, :product_id => product.id}), :method => "post"
+      </div>

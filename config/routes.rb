@@ -21,9 +21,11 @@ Rails.application.routes.draw do
     end
     resources :users, :except => :index
 
-    resources :carts, only: [:show]
-
-    post '/add_item' => 'carts#add_item'
-    post '/update_item' => 'carts#update_item'
-    delete '/delete_item' => 'carts#delete_item'
+      resources :carts, only: [:show] do
+    member do
+      post '/add_item/:product_id' => 'carts#add_item', as: 'add_item'
+      post '/update_item/:product_id' => 'carts#update_item', as: 'update_item'
+      delete '/delete_item/:product_id' => 'carts#delete_item', as: 'delete_item'
+    end
+  end
 end
