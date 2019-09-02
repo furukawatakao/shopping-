@@ -42,4 +42,4 @@ table.table.table-hover
           td
             <label> 購入数:<input type = "number"></label>
             <button type="button" class="btn btn-success">購入</button>
-            = link_to "商品追加", add_item_cart_path({:id => current_cart.id, :product_id => product.id}), :method => "post"
+            = link_to "商品追加", add_item_cart_path(id: current_cart.id, product_id: product.id), :method => "post"

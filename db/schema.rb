@@ -33,18 +33,13 @@ ActiveRecord::Schema.define(version: 2019_08_29_072117) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admin_management_users", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "admin_users", force: :cascade do |t|
-    t.string "email"
-    t.string "name"
-    t.string "password_digest"
+    t.string "email", null: false
+    t.string "name", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
   end
 
   create_table "cart_items", force: :cascade do |t|
