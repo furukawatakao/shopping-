@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    session.delete(:cart_id)
     redirect_to login_path, notice: 'ログアウトしました。'
   end
 
