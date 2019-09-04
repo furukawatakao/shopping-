@@ -1,13 +1,15 @@
-therd.therd-default
-  tr
-    th= Product.human_attribute_name(:name)
-    th= Product.human_attribute_name(:image)
-    th= Product.human_attribute_name(:price)
-    th= Product.human_attribute_name(:created_at)
-    th
-        - @cart_items.each do |item|
-          tr
-            td= item.product_id
-            td= item.quantity
-            th= Product.human_attribute_name(:created_at)
-            = link_to "削除", delete_item_cart_path(id: current_cart.id, product_id: item.product_id), method: "delete"
+table.table.table-hover
+  therd.therd-default
+    tr
+      th= Cart.human_attribute_name(:name)
+      th= Cart.human_attribute_name(:quantity)
+      th= Cart.human_attribute_name(:price)
+      th= Cart.human_attribute_name(:delete)
+      th
+          - @cart_items.each do |item|
+            tr
+              td= item.product_id
+              td= item.quantity
+              th= item.price
+              th
+                = link_to "削除", delete_item_cart_path(id: current_cart.id, product_id: item.product_id), method: "delete"

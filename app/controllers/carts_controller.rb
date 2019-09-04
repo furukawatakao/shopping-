@@ -23,7 +23,7 @@ class CartsController < ApplicationController
       @cart_item.quantity -= 1
       @cart_item.save
     end
-    redirect_to current_cart
+      redirect_to current_cart
   end
 
   private
