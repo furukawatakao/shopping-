@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   before_action :setup_cart_item!, only: [:add_item, :update_item, :delete_item]
 
   def show
-     @cart_items = current_cart.cart_items
+    @cart_items = current_cart.cart_items
   end
 
   def add_item
@@ -31,6 +31,9 @@ class CartsController < ApplicationController
       @cart_item.save
     end
       redirect_to current_cart
+  end
+
+  def purchase
   end
 
   private
