@@ -1,12 +1,15 @@
 h1 カート内の商品
+= form_with @cart, url: update_item_cart_path(@cart) do |f|
 br
 table.table.table-hover
   therd.therd-default
+  tr
     tr
       th= Cart.human_attribute_name(:name)
       th= Cart.human_attribute_name(:quantity)
       th= Cart.human_attribute_name(:price)
       th
+         end
           - @cart_items.each do |item|
             tr
               td= item.product.name
@@ -15,4 +18,4 @@ table.table.table-hover
               th
                 = link_to "一つ削除", delete_item_cart_path(id: current_cart.id, product_id: item.product_id), method: "delete", class: "btn btn-danger"
 
-      = link_to "購入", login_path, method: "post", class: "btn btn-primary"
+    = link_to "購入", login_path, method: "post", class: "btn btn-primary"
