@@ -1,5 +1,5 @@
 h1 カート内の商品
-= form_with @cart, url: update_item_cart_path(@cart) do |f|
+<!-- = form_with @cart, url: update _item_cart_path(@cart) do |f| -->
 br
 table.table.table-hover
   therd.therd-default
@@ -19,4 +19,4 @@ table.table.table-hover
                 = link_to "一つ削除", delete_item_cart_path(id: current_cart.id, product_id: item.product_id), method: "delete", class: "btn btn-danger"
 
 
-= link_to "購入", purchase_cart_path(cart_id: current_cart.id), method: "post", class: "btn btn-primary"
+= link_to "購入", purchase_cart_path, method: "post", class: "btn btn-primary"

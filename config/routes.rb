@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'products/show'
   namespace :admin do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
@@ -11,6 +9,11 @@ Rails.application.routes.draw do
     resources :management_users
   end
 
+  get 'mypage/show'
+
+  get 'products/index'
+  get 'products/show'
+  
   get '/login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
       post '/add_item/:product_id' => 'carts#add_item', as: 'add_item'
       post '/update_item/:product_id' => 'carts#update_item', as: 'update_item'
       delete '/delete_item/:product_id' => 'carts#delete_item', as: 'delete_item'
-      post '/purchase/:cart_id' => 'carts#purchase', as: 'purchase'
+      post '/purchase' => 'carts#purchase', as: 'purchase'
     end
   end
 end

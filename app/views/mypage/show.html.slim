@@ -1,0 +1,12 @@
+h1 購入履歴
+
+.mb-3
+  table.table.table-hover
+    therd.therd-default
+      tr
+        th= Order.human_attribute_name(:name)
+        th
+          tbody
+            - @purchase_historys.each do |history|
+              tr
+                td= history.user_id

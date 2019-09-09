@@ -34,6 +34,19 @@ class CartsController < ApplicationController
   end
 
   def purchase
+    @cart = Cart.find(params[:id])
+    @order = Order.create(user_id: @cart.user_id)
+    @cart_items = CartItem.where(cart_id: params[:id])
+    @cart_items.each do |item|
+      @order_item = @order.order_items.build(
+        user_id: current_user.id,
+        quantity: item.quantity,
+        product_id: item.product_id,
+        sum_amount: item.quantity * item.product.price
+      ).save!
+    end
+    session.delete(:cart_id)
+    redirect_to products_path, notice: "商品購入しました"
   end
 
   private
