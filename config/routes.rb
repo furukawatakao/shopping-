@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'products#index'
   namespace :admin do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'products/index'
   get 'products/show'
-  
+
   get '/login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
