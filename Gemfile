@@ -66,3 +66,4 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'ransack'
 gem 'pg', '0.20.0'
+gem "aws-sdk-s3", require: false
