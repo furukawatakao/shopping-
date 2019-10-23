@@ -5,8 +5,12 @@ h1 購入履歴
     therd.therd-default
       tr
         th= Order.human_attribute_name(:name)
+        th= Order.human_attribute_name(:created_at)
+        th= Order.human_attribute_name(:updated_at)
         th
           tbody
             - @purchase_historys.each do |history|
               tr
                 td= history.user_id
+                td= history.created_at
+                td= history.updated_at

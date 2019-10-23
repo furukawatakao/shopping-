@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.attributes = cart_params
     @cart.save!
-    redirect_to cart_url, notice: "商品「#{@cart.name}を更新しました"
+    redirect_to cart_url, notice: "商品「#{@cart.name}」を更新しました"
   end
 
   def delete_item
