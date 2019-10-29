@@ -20,7 +20,7 @@ class Forms::ProductSearchForm
 
     # 商品名での検索
     if @name.present?
-      scope = scope.where(name: @name)
+      scope = scope.where("name LIKE ?", "%#{@name}%")
     end
     # 商品価格下限での検索
     if @price_from.present?
