@@ -28,7 +28,7 @@ h1 購入履歴(注文別)
       .col-md-8
         .card-body
           - total_fee = 0
-          - order.order_item.each do |orderitem|
+          - order.order_items.each do |orderitem|
             br
             = orderitem.product.name
             = orderitem.sum_amount
