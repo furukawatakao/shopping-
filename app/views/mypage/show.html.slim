@@ -5,7 +5,7 @@ h1 購入履歴
     therd.therd-default
       tr
         th= OrderItem.human_attribute_name(:order_id)
-        th= OrderItem.human_attribute_name(:product_id)
+        th= OrderItem.human_attribute_name(:name)
         th= OrderItem.human_attribute_name(:quantity)
         th= OrderItem.human_attribute_name(:sum_amount)
         th= OrderItem.human_attribute_name(:updated_at)
@@ -14,7 +14,7 @@ h1 購入履歴
             - @purchase_historys.each do |history|
               tr
                 td= history.order_id
-                td= history.product_id
+                td= history.product.name
                 td= history.quantity
                 td= history.sum_amount
                 td= history.updated_at
